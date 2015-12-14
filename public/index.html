@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title id="pageHeader">Web Chat 1.0</title>
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/style.css" media="screen">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="//cdn.auth0.com/js/lock-7.12.min.js"></script>
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <p>Web Chat 1.0</p>
+        <p id="username"></p>
+        <button id="login">Log In</button>
+        <button id="logout">Log Out</button>
+      </header>
+      <div class="empty"></div>
+      <div class="chat"></div>
+      <div class="forTyping"></div>
+      <div class="empty"></div>
+      <footer>
+        <!-- <form> -->
+        <div id="typingStatus"></div>
+          <input id="msg" type="text" autofocus>
+          <div class="button-container">
+            <button id="btn" type="submit">SEND</button>
+          </div>
+        <!-- </form> -->
+      </footer>
+    </div>
+  </body>
+</html>
