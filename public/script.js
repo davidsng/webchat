@@ -1,6 +1,6 @@
 /* global $ Auth0Lock */
 document.querySelector('#login').addEventListener('click', function () {
-  var lock = new Auth0Lock('TtKbfNdcsTGsFcFu0aqxxpeCAEML0RRg', 'belgian-chocolates.auth0.com')
+  var lock = new Auth0Lock('TtKbfNdcsTGsFcFu0aqxxpeCAEML0RRg', 'davidsng.auth0.com')
   lock.show(function (err, profile, token) {
     if (err) {
       console.error('Something went wrong: ', err)
@@ -40,7 +40,7 @@ if (isLoggedIn()) {
 
 function startChat () {
   toggleLogin(false)
-  var socket = window.io.connect('https://chat-online-now.herokuapp.com', {
+  var socket = window.io.connect('http://localhost:3000', {
     'query': 'token=' + window.localStorage.getItem('userToken')
   })
   var profile = JSON.parse(window.localStorage.getItem('profile'))
