@@ -38,12 +38,9 @@ if (isLoggedIn()) {
   toggleLogin(true)
 }
 
-// const addresses = ['http://localhost:3000', 'https://chat-online-now.herokuapp.com/']
-
-
 function startChat () {
   toggleLogin(false)
-  var socket = window.io.connect('https://chat-online-now.herokuapp.com', {
+  var socket = window.io.connect(window.location.origin, {
     'query': 'token=' + window.localStorage.getItem('userToken')
   })
   var profile = JSON.parse(window.localStorage.getItem('profile'))
