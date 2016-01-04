@@ -81,8 +81,8 @@ function startChat () {
 
     section.innerHTML = `
     <p>${message.username}</p>
-    <p>${message.message}</p>
-    <p>${time}</p>`
+    <div>${message.message}</div>
+    <p class="timestamp">${time}</p>`
 
     chat.appendChild(section)
     section.scrollIntoView()

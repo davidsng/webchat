@@ -4,6 +4,7 @@ const http = require('http').Server(app)
 const io = require('socket.io')(http)
 const mongoose = require('mongoose')
 const socketioJwt = require('socketio-jwt')
+const md = require('markdown').markdown
 
 // database connection
 const db_user = process.env.CHAT_DB_USER || 'user'
@@ -13,9 +14,9 @@ mongoose.connect(db_url)
 // const db = mongoose.connection
 
 const Message = mongoose.model('Message', {
-  username: String,
-  message: String,
-  timestamp: Object
+  'username': String,
+  'message': String,
+  'timestamp': Object
 })
 
 app.use(express.static('public'))
@@ -38,6 +39,7 @@ io.on('connection', function (socket) {
 
   socket.on('chat message', function (msg) {
     // save message to database
+    msg.message = md.toHTML(msg.message)
     const message = new Message(msg)
     message.save(function (err) {
       if (err) return console.error(err)
