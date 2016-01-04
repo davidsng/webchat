@@ -168,7 +168,7 @@ function startChat () {
     pageHeader.textContent = 'Web Chat 1.0'
   }
 
-  socket.on('typing', data => {
+  socket.on('typing', function (data) {
     if (data.isTyping) {
       addTypingNotification(data.username)
       console.log('UL added')

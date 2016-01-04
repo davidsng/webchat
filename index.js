@@ -27,36 +27,36 @@ io.use(socketioJwt.authorize({
   handshake: true
 }))
 
-io.on('connection', (socket) => {
+io.on('connection', function (socket) {
   console.log('A user connected.', socket.decoded_token.name)
   // send chat log on new user connection
-  Message.model('Message').find((err, messages) => {
+  Message.model('Message').find(function (err, messages) {
     if (err) return console.error(err)
     // io.emit('chat log', messages)
     socket.emit('chat log', messages)
   })
 
-  socket.on('chat message', msg => {
+  socket.on('chat message', function (msg) {
     // save message to database
     const message = new Message(msg)
-    message.save(err => {
+    message.save(function (err) {
       if (err) return console.error(err)
     })
     console.log(`Message: ${msg.message}`)
     // send message to all clients
     io.emit('chat message', msg)
   })
-  socket.on('typing', input => {
+  socket.on('typing', function (input) {
     io.emit('typing', input)
     console.log(input)
   })
   // socket.on('isTyping', input {})
-  socket.on('disconnect', () => {
+  socket.on('disconnect', function () {
     console.log('User disconnected.')
   })
 })
 
 const PORT = process.env.PORT || 3000
-http.listen(PORT, () => {
+http.listen(PORT, function () {
   console.log(`Listening to http://localhost:${PORT}`)
 })
