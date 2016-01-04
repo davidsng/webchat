@@ -23,7 +23,7 @@ app.use(express.static('public'))
 // enable auth0 log in
 
 io.use(socketioJwt.authorize({
-  secret: Buffer('Tqar8EmhhOMilDDeBEWXXjkn3__R2kksNVm5LmhxdzP97E89ZaLpwevEODkW_j2I', 'base64'),
+  secret: Buffer('0MZUODcfZlmWQr0gtItriIssOQ8Koa5Ppw6irOsuLK8y1PkPjD5fj6ZqgAqi_KV1', 'base64'),
   handshake: true
 }))
 
