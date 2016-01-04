@@ -139,7 +139,7 @@ function startChat () {
   function addTypingNotification (name) {
     var chat = document.querySelector('.chat')
     var section = document.createElement('section')
-    section.innerHTML = `<p class="typingNotification">...${name} is typing</p>`
+    section.innerHTML = `<p class="typingNotification">${name} is typing...</p>`
     chat.appendChild(section)
     section.scrollIntoView()
 
