@@ -7,8 +7,8 @@ const socketioJwt = require('socketio-jwt')
 const md = require('markdown').markdown
 
 // database connection
-const db_user = process.env.CHAT_DB_USER || 'user'
-const db_pwd = process.env.CHAT_DB_PWD || 'password'
+const db_user = process.env.CHAT_DB_USER
+const db_pwd = process.env.CHAT_DB_PWD
 const db_url = 'mongodb://' + db_user + ':' + db_pwd + '@ds027835.mongolab.com:27835/webchat'
 mongoose.connect(db_url)
 // const db = mongoose.connection
